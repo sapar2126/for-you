@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For You 💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Romantic music - tries to autoplay -->
+  <!-- ROMANTIC MUSIC
+       Put your own song (e.g. Best Part) in this folder and name it music.mp3
+       Then change the src below to "music.mp3"
+       Music will start automatically on the first click/tap (browser rule). -->
+  <audio id="bg-music" loop preload="auto" autoplay>
+    <source src="music.mp3" type="audio/mpeg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Galaxy + stars + hearts -->
+  <canvas id="stars-canvas"></canvas>
+  <canvas id="hearts-canvas"></canvas>
+  <div class="nebula"></div>
+  <div class="aurora"></div>
+  <div class="grain"></div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-label" id="progress-label">For you 💕</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- Back -->
+  <button class="back-btn" id="back-btn" aria-label="Go back">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    back
+  </button>
+
+  <main class="stage">
+
+    <!-- STEP 1 : THE ASK -->
+    <section class="step is-active" id="step-ask" data-step="1">
+      <div class="bears-wrap">
+        <img src="https://media.giphy.com/media/IzXiddo2twMmdmU8Lv/giphy.gif" 
+             alt="Cute bears hugging" class="couple-gif" loading="eager"/>
+        <div class="floating-hearts-mini" id="mini-hearts"></div>
+      </div>
+
+      <p class="whisper">I made this just for you...</p>
+      <h1 class="script-title">Will you go out<br/>with me?</h1>
+      <p class="subtitle">There’s only one answer that makes my heart happy 💕</p>
+
+      <div class="btn-row" id="ask-btns">
+        <button class="btn btn-yes" id="btn-yes">Yes! 💕</button>
+        <button class="btn btn-no" id="btn-no">No</button>
+      </div>
+      <p class="dodge-counter" id="dodge-counter"></p>
+    </section>
+
+    <!-- STEP 2 : WHEN -->
+    <section class="step" id="step-when" data-step="2">
+      <div class="reaction-gif">
+        <img src="https://media.giphy.com/media/IzXiddo2twMmdmU8Lv/giphy.gif" 
+             alt="Happy" class="couple-gif small" onerror="this.src='https://media.giphy.com/media/3o7TKnjY8q8y8y8y8y/giphy.gif'"/>
+      </div>
+      <h2 class="script-title small">Yay! When are you free?</h2>
+      <p class="subtitle soft">I already can’t wait...</p>
+      <div class="card-grid" id="grid-when"></div>
+    </section>
+
+    <!-- STEP 3 : TIME -->
+    <section class="step" id="step-time" data-step="3">
+      <div class="reaction-gif">
+        <div class="emoji-burst" style="font-size:2.6rem">🕰️💕</div>
+      </div>
+      <h2 class="script-title small">What time feels right?</h2>
+      <p class="subtitle soft">I want every moment to be perfect for you</p>
+      <div class="card-grid" id="grid-time"></div>
+    </section>
+
+    <!-- STEP 4 : WHERE -->
+    <section class="step" id="step-where" data-step="4">
+      <div class="reaction-gif">
+        <div class="emoji-burst">🌙✨</div>
+      </div>
+      <h2 class="script-title small">Where should we go?</h2>
+      <div class="card-grid" id="grid-where"></div>
+    </section>
+
+    <!-- STEP 5 : BRING -->
+    <section class="step" id="step-bring" data-step="5">
+      <div class="reaction-gif">
+        <div class="emoji-burst">💐🥰</div>
+      </div>
+      <h2 class="script-title small">What should I bring you?</h2>
+      <div class="card-grid" id="grid-bring"></div>
+    </section>
+
+    <!-- STEP 6 : THEN -->
+    <section class="step" id="step-then" data-step="6">
+      <div class="reaction-gif">
+        <div class="emoji-burst">🌟💑</div>
+      </div>
+      <h2 class="script-title small">And then...?</h2>
+      <div class="card-grid" id="grid-then"></div>
+    </section>
+
+    <!-- STEP 7 : OFFICIAL DATE PASS -->
+    <section class="step" id="step-ticket" data-step="7">
+      <p class="whisper">With all my heart...</p>
+      <h2 class="script-title small">Official Date Invitation</h2>
+      <p class="subtitle soft">Please accept this formal invitation</p>
+
+      <div class="final-gifs" style="margin:10px 0 6px">
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" 
+             alt="Romantic couple" class="couple-gif tiny"
+             onerror="this.src='https://media.giphy.com/media/3o7TKnjY8q8y8y8y8y/giphy.gif'"/>
+      </div>
+
+      <div class="ticket" id="ticket">
+        <div class="ticket-left">
+          <div class="ticket-bear">
+            <div style="font-size:3.2rem;line-height:1">🐻💕</div>
+          </div>
+          <p class="admit">ADMIT TWO</p>
+          <p class="ticket-no" id="ticket-no">No. 0000</p>
+          <div class="stamp" id="stamp">SAVED</div>
+        </div>
+        <div class="ticket-divider"><div class="notch top"></div><div class="notch bottom"></div></div>
+        <div class="ticket-right">
+          <p class="ticket-title">DATE PASS</p>
+          <dl class="ticket-rows">
+            <div><dt>WHEN</dt><dd id="t-when">—</dd></div>
+            <div><dt>TIME</dt><dd id="t-time">—</dd></div>
+            <div><dt>WHERE</dt><dd id="t-where">—</dd></div>
+            <div><dt>BRING</dt><dd id="t-bring">—</dd></div>
+            <div><dt>THEN</dt><dd id="t-then">—</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <p class="countdown" id="countdown">Starts in —</p>
+
+      <div class="btn-row center">
+        <button class="btn btn-yes" id="btn-calendar">Add to calendar</button>
+        <button class="btn btn-ghost" id="btn-share">Share the love</button>
+      </div>
+      <p class="toast" id="toast"></p>
+    </section>
+
+    <!-- STEP 8 : CALENDAR -->
+    <section class="step" id="step-calendar" data-step="8">
+      <p class="cal-label">ADDING TO YOUR CALENDAR</p>
+      <h2 class="script-title small" id="cal-month">—</h2>
+      <div class="calendar" id="calendar-grid"></div>
+      <p class="cal-msg" id="cal-msg"></p>
+      <button class="btn btn-yes" id="btn-confirm">See you there 💕</button>
+    </section>
+
+  </main>
+
+  <!-- Confetti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
